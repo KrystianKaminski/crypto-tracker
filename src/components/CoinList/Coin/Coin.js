@@ -20,4 +20,10 @@ Coin.propTypes = {
     cap: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
 }
 
+Coin.defaultProps = {
+    value: '-',
+    acronym: "0",
+    cap: '0'
+}
+
 export default Coin
