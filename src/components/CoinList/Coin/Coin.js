@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 const Coin = ({name, acronym, value, cap}) => {
     return (
@@ -11,6 +12,12 @@ const Coin = ({name, acronym, value, cap}) => {
             </ul>
         </div>
     )
+}
+
+Coin.propTypes = {
+    name: PropTypes.string.isRequired,
+    value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    cap: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
 }
 
 export default Coin
