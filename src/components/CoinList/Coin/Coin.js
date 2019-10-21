@@ -3,11 +3,11 @@ import React from 'react'
 const Coin = props => {
     return (
         <div>
-            Bitcoin
+           {props.name}
             <ul className="crypto">
-                <li className="crypto__acronym">Acronym: BTC</li>
-                <li className="crypto__value">Current value: 8.800 $</li>
-                <li className="crypto__cap">Market cap: 2,3 mld</li>
+                <li className="crypto__acronym">Acronym: {props.acronym}</li>
+                <li className="crypto__value">Current value: ${props.value}</li>
+                <li className="crypto__cap">Market cap: ${props.cap}</li>
             </ul>
         </div>
     )
