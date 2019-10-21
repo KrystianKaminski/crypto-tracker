@@ -1,13 +1,13 @@
 import React from 'react'
 
-const Coin = props => {
+const Coin = ({name, acronym, value, cap}) => {
     return (
         <div>
-           {props.name}
+           {name}
             <ul className="crypto">
-                <li className="crypto__acronym">Acronym: {props.acronym}</li>
-                <li className="crypto__value">Current value: ${props.value}</li>
-                <li className="crypto__cap">Market cap: ${props.cap}</li>
+                <li className="crypto__acronym">Acronym: {acronym}</li>
+                <li className="crypto__value">Current value: ${value}</li>
+                <li className="crypto__cap">Market cap: ${cap}</li>
             </ul>
         </div>
     )
