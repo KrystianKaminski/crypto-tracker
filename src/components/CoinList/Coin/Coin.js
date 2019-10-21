@@ -6,8 +6,8 @@ const Coin = ({name, acronym, value, cap}) => {
            {name}
             <ul className="crypto">
                 <li className="crypto__acronym">Acronym: {acronym}</li>
-                <li className="crypto__value">Current value: ${value}</li>
-                <li className="crypto__cap">Market cap: ${cap}</li>
+                <li className="crypto__value">Current value: ${String(value).replace(/\B(?=(\d{3})+(?!\d))/g, " ").trim()}</li>
+                <li className="crypto__cap">Market cap: ${String(cap).replace(/\B(?=(\d{3})+(?!\d))/g, " ").trim()}</li>
             </ul>
         </div>
     )
