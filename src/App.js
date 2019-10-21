@@ -7,7 +7,10 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Header/>
+        <Header
+          title="Cryptocurrency Market Capitalizations"
+          cap={452471038865}
+        />
         <SearchBar/>
         <CoinList/>
       </div>

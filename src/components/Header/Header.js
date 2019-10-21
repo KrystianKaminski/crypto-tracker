@@ -1,19 +1,27 @@
-import React from 'react'
+import React from "react";
+import PropTypes from "prop-types";
 
-const Header = (props) => {
-    return (
-        <div>
-            <h1>Cryptocurrency Market Capitalizations</h1>
-            <div className="info">
-                <div className="info__crypto">
-                    Cryptocurrencies: 1494 / Markets: 8195
-                </div>
-                <div className="info__crypto">
-                   Market Cap: $591 331 002 804 / 24h Vol: $22 764 514 250 / BTC Dominance: 34.3%
-                </div>
-            </div>
+const Header = ({ title, cap }) => {
+  return (
+    <div>
+      <h1>{title}</h1>
+      <div className="info">
+        <div className="info__crypto">
+          Cryptocurrencies: 1494 / Markets: 8195
         </div>
-    )
-}
+        <div className="info__crypto">
+          Market Cap: $
+          {String(cap)
+            .replace(/\B(?=(\d{3})+(?!\d))/g, " ").trim()}
+        </div>
+      </div>
+    </div>
+  );
+};
 
-export default Header
+Header.propTypes = {
+  title: PropTypes.string,
+  cap: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired
+};
+
+export default Header;
