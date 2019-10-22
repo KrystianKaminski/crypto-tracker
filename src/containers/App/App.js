@@ -13,7 +13,7 @@ class App extends Component {
     ],
   };
 
-  componentDidMount() {
+  componentWillMount() {
     this.setState({
       totalCapValue: this.state.cryptos.reduce((acc, { cap }) => acc + cap, 0)
     })
@@ -27,7 +27,9 @@ class App extends Component {
           cap={this.state.totalCapValue}
         />
         <SearchBar/>
-        <CoinList/>
+        <CoinList
+          cryptos={this.state.cryptos}
+        />
       </div>
     )
   }
