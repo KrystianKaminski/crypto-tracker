@@ -76,7 +76,7 @@ class App extends Component {
     return (
       <div>
         <Header
-          // title="Cryptocurrency Market Capitalizations"
+          title="Title"
           cap={this.state.totalCapValue}
         />
         <SearchBar

@@ -1,10 +1,23 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+const headerContainer = {
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  marginTop: 36
+}
+
+const appTitle = {
+  fontWeight: 'bold'
+}
+
+const formatMoneyRegex = /\B(?=(\d{3})+(?!\d))/g
+
 const Header = ({ title, cap }) => {
   return (
-    <div>
-      <h1>{title}</h1>
+    <div style={headerContainer}>
+      <h1 style={appTitle}>{title}</h1>
       <div className="info">
         <div className="info__crypto">
           Cryptocurrencies: 1494 / Markets: 8195
@@ -12,7 +25,7 @@ const Header = ({ title, cap }) => {
         <div className="info__crypto">
           Market Cap: $
           {String(cap)
-            .replace(/\B(?=(\d{3})+(?!\d))/g, " ").trim()}
+            .replace(formatMoneyRegex, " ")}
         </div>
       </div>
     </div>
