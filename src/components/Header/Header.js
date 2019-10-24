@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import formatAsCurrency from '../../utils/helpers';
+import formatAsCurrency from '../../shared/utils/helpers';
 
 const headerContainer = {
   display: 'flex',

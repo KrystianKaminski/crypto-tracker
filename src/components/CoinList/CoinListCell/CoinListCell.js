@@ -1,13 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const CoinListCell = ({
-  isLarge,
-  hasBoldText,
-  hasThinBorder,
-  additionalStyling,
-  children,
-}) => {
+const CoinListCell = ({ isLarge, isHeader, additionalStyling, children }) => {
   const fieldBorderColor = '#dedede';
   const fieldPadding = 10;
   const largeFieldFlex = '1 0 25%';
@@ -18,10 +12,10 @@ const CoinListCell = ({
       display: 'flex',
       alignItems: 'center',
       flex: isLarge ? largeFieldFlex : smallFieldFlex,
-      fontWeight: hasBoldText ? 700 : 300,
+      fontWeight: isHeader ? 700 : 300,
       paddingTop: fieldPadding,
       paddingBottom: fieldPadding,
-      borderBottom: `${hasThinBorder ? 4 : 2}px solid ${fieldBorderColor}`,
+      borderBottom: `${isHeader ? 4 : 2}px solid ${fieldBorderColor}`,
     },
   };
 
