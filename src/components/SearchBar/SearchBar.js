@@ -1,8 +1,8 @@
 import React from 'react'
 
-const SearchBar = ({handleChange}) => {
+const SearchBar = ({handleChange, searchValue}) => {
     return (
-      <input onChange={handleChange}/>
+      <input type="text" value={searchValue} onChange={handleChange} />
     )
 }
 
