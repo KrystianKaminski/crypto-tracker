@@ -1,18 +1,18 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const headerContainer = {
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-  marginTop: 36
-}
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  marginTop: 36,
+};
 
 const appTitle = {
-  fontWeight: 'bold'
-}
+  fontWeight: 'bold',
+};
 
-const formatMoneyRegex = /\B(?=(\d{3})+(?!\d))/g
+const formatMoneyRegex = /\B(?=(\d{3})+(?!\d))/g;
 
 const Header = ({ title, cap }) => {
   return (
@@ -23,9 +23,7 @@ const Header = ({ title, cap }) => {
           Cryptocurrencies: 1494 / Markets: 8195
         </div>
         <div className="info__crypto">
-          Market Cap: $
-          {String(cap)
-            .replace(formatMoneyRegex, " ")}
+          Market Cap: ${String(cap).replace(formatMoneyRegex, ' ')}
         </div>
       </div>
     </div>
@@ -34,7 +32,7 @@ const Header = ({ title, cap }) => {
 
 Header.propTypes = {
   title: PropTypes.string,
-  cap: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired
+  cap: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
 };
 
 export default Header;
