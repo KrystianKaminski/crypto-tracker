@@ -14,6 +14,10 @@ class App extends Component {
     totalCapValue: 1293123123123
   };
 
+  searchChangedHandler = (event) => {
+      this.setState({searchQuery: event.target.value})
+  }
+
   render() {
     return (
       <div>
@@ -21,7 +25,9 @@ class App extends Component {
           title="Cryptocurrency Market Capitalizations"
           cap={this.state.totalCapValue}
         />
-        <SearchBar/>
+        <SearchBar
+          handleChange={this.searchChangedHandler}
+        />
         <CoinList
           cryptos={this.state.cryptos}
         />

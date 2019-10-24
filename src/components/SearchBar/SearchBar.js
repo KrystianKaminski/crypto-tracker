@@ -1,8 +1,8 @@
 import React from 'react'
 
-const SearchBar = (props) => {
+const SearchBar = ({handleChange}) => {
     return (
-        <div>SearchBar</div>
+      <input onChange={handleChange}/>
     )
 }
 
