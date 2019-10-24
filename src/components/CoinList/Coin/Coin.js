@@ -1,29 +1,75 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Coin = ({name, acronym, value, cap}) => {
+import CoinListCell from '../CoinListCell/CoinListCell'
+import CoinListRow from '../CoinListRow/CoinListRow'
+
+const malachite = '#04BF12'
+const grenadier = '#dd2c00'
+const styles = {
+    coinSymbol: {
+        width: 36,
+        height: 36,
+        margin: 10
+    },
+    percentChangePlus: {
+        color: malachite
+    },
+    percentChangeMinus: {
+        color: grenadier
+    }
+}
+
+const Coin = ({symbol, name, change, cap, supply, price, acronym}) => {
+    function formatAsCurrency(value) {
+        const currencyFormatRegex = /\B(?=(\d{3})+(?!\d))/g;
+        return `$${String(value)
+            .replace(currencyFormatRegex, ' ')
+            .trim()
+        }`
+    }
+
     return (
-        <div>
-           {name}
-            <ul className="crypto">
-                <li className="crypto__acronym">Acronym: {acronym}</li>
-                <li className="crypto__value">Current value: ${String(value).replace(/\B(?=(\d{3})+(?!\d))/g, " ").trim()}</li>
-                <li className="crypto__cap">Market cap: ${String(cap).replace(/\B(?=(\d{3})+(?!\d))/g, " ").trim()}</li>
-            </ul>
-        </div>
+       <CoinListRow>
+           <CoinListCell isLarge>
+               <img
+                    src={symbol}
+                    alt={`${name}'s symbol`}
+                    style={styles.coinSymbol}
+               />
+               <div>{name}</div>
+           </CoinListCell>
+           <CoinListCell>{formatAsCurrency(price)}</CoinListCell>
+           <CoinListCell
+                additionalStyling={
+                    change >= 0 ? styles.percentChangePlus : styles.percentChangeMinus
+                }
+           >
+               {change} %
+           </CoinListCell>
+           <CoinListCell>{formatAsCurrency(cap)}</CoinListCell>
+           <CoinListCell>
+               {formatAsCurrency(supply)}
+               {` ${acronym} `}
+           </CoinListCell>
+       </CoinListRow>
     )
 }
 
 Coin.propTypes = {
+    symbol: PropTypes.string,
     name: PropTypes.string.isRequired,
-    value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-    cap: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
+    price: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    change: PropTypes.number,
+    cap: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    supply: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    acronym: PropTypes.string
 }
 
 Coin.defaultProps = {
     value: '-',
-    acronym: "0",
-    cap: '0'
+    acronym: "Unknown",
+    cap: 'Unknown'
 }
 
 export default Coin
