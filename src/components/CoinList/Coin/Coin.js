@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import formatAsCurrency from '../../../utils/helpers';
 
 import CoinListCell from '../CoinListCell/CoinListCell';
 import CoinListRow from '../CoinListRow/CoinListRow';
@@ -21,13 +22,6 @@ const styles = {
 };
 
 const Coin = ({ symbol, name, change, cap, supply, price, acronym }) => {
-  function formatAsCurrency(value) {
-    const currencyFormatRegex = /\B(?=(\d{3})+(?!\d))/g;
-    return `$${String(value)
-      .replace(currencyFormatRegex, ' ')
-      .trim()}`;
-  }
-
   return (
     <CoinListRow>
       <CoinListCell isLarge>

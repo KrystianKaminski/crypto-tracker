@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import formatAsCurrency from '../../utils/helpers';
 
 const headerContainer = {
   display: 'flex',
@@ -12,8 +13,6 @@ const appTitle = {
   fontWeight: 'bold',
 };
 
-const formatMoneyRegex = /\B(?=(\d{3})+(?!\d))/g;
-
 const Header = ({ title, cap }) => {
   return (
     <div style={headerContainer}>
@@ -22,9 +21,7 @@ const Header = ({ title, cap }) => {
         <div className="info__crypto">
           Cryptocurrencies: 1494 / Markets: 8195
         </div>
-        <div className="info__crypto">
-          Market Cap: ${String(cap).replace(formatMoneyRegex, ' ')}
-        </div>
+        <div className="info__crypto">Market Cap: ${formatAsCurrency(cap)}</div>
       </div>
     </div>
   );
